@@ -19,20 +19,6 @@ body {
      height : 100vh;
      font-family : 'segoe UI', sans-serif;
      }
-
-     .3Dparticles-js{
-        position : fixed;
-        width : 100%;
-        height : 100%;
-        left : 0;
-        top : 0;
-        z-index : 1;
-        box-sizing : border-box;
-        display : flex;
-        flex-direction : column;
-        justify-content : center;
-        }
-
      .post {
            width : 1080px;
            height : 1080px;
@@ -164,7 +150,7 @@ z-index:999;
   border-radius:10px;
   position:relative;
 }
-.form-box inout,
+.form-box input,
 .form-box select{
   width:100%;
   padding:8px;
@@ -220,23 +206,11 @@ transform:translateX(-50%)rotate(360deg);
 
 <script>
 
-3DparticlesJS("3Dparticles-js",{
-"3Dparticles":{
-"number":{"value":80},
-"size":{"value":3}
-"move":{"speed":2},
-"line-linked":{
-"enable":true,
-"distance":150
-}
-}
-});
-
 function openForm(){
 document.getElementById("jobForm").style.display="flex";
 }
 function closeForm(){
-documemt.getElementById("jobForm").style.display="none";
+document.getElementById("jobForm").style.display="none";
 }
 document.getElementById("jobApplicationForm").addEventListener("submit",function(e){
 e.preventDefault();
