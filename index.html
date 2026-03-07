@@ -10,12 +10,29 @@ body {
      margin : 0;
      padding : 0;
      background-image : url("img.jpeg");
+     background-size : cover;
+     background-position : center;
+     background-repeat : no-repeat;
      display : flex;
      justify-content : center;
      align-items : center;
      height : 100vh;
      font-family : 'segoe UI', sans-serif;
      }
+
+     .3Dparticles-js{
+        position : fixed;
+        width : 100%;
+        height : 100%;
+        left : 0;
+        top : 0;
+        z-index : 1;
+        box-sizing : border-box;
+        display : flex;
+        flex-direction : column;
+        justify-content : center;
+        }
+
      .post {
            width : 1080px;
            height : 1080px;
@@ -26,9 +43,11 @@ body {
            display : flex;
            flex-direction : column;
            justify-content : center;
+           position : relative;
+           z-index : 2;
            }
       .company {
-            font-size : 40px;
+            font-size : 40px; 
             font-weight : boldserif;
             letter-spacing : 2px;
             margin-bottom : 40px;
@@ -43,7 +62,7 @@ body {
        .position {
            font-size : 30px;
            margin-bottom : 40px;
-           color : aqua;
+           color : DarkTurquoise;
            font-weight : bold;
            }
        .details {
@@ -60,7 +79,7 @@ body {
            padding : 15px 30px;
            width : fit-content;
            border-radius : 40px;
-           cursor:pointer;
+           cursor : pointer;
         
           }
         .background {
@@ -69,10 +88,15 @@ body {
    </style>
    </head>
    <body>
+         <div id="3Dparticles-js"></div>
+         <div class="wave"></div>
+         <div class="wave wave2"></div>
+         <div class="wave wave3"></div>
+
          <div class = "post">
          <div class = "company" align = "center" >
          <img src="logo.png" alt="Almighty Genesis Logo" style="width:150px; display:block; margin:0 auto 10px;">
-         <span style="color:#4FA3E3;"> ALMIGHTY</span>
+         <span style="color:#007BFF;">ALMIGHTY</span>
          <span style="color:#C2188F;"> GENESIS</span>
          </div>
          <h2><div class = "position"> BE PART OF ALMIGHTY GENESIS </div></h2>
@@ -81,7 +105,8 @@ body {
          Location : KAKINADA <br>
          Experience : 0-2 years <br>
          Qualification : Any Degree <br>
-         Requirements : Interested in Marketing and Sales & Business Opportunities <br>
+         Requirements : Interested in Marketing and Sales
+                        & Business Opportunities <br>
          Send Resume : almightygenesis@gmail.com
 </div>
 <div class="button" onclick="openForm()"> Apply Now </div>
@@ -105,14 +130,14 @@ onclick="closeForm()">X</span>
  <input type="tel" name="Phone" id="Phone" placeholder="Phone Number" required maxlength="10" pattern="[0-9]{10}" title="please enter exactly 10 digits">
 </div>
           <select name="position" required>
-            <option value= "" disabled selected>Select Position</option>
+            <option value= "" disabled selected>Select Position</option> 
             <option value="business_development_executive">BUSINESS DEVELOPMENT EXECUTIVE</option>
             <option value="sales_executive">SALES EXECUTIVE</option>
             <option value="marketing_executive">MARKETING EXECUTIVE</option>
             <option value="customer_support_representive">CUSTOMER SUPPORT REPRESENTATIVE </option>
 </select>
       <input type="file" name="resume" accept=".pdf, .doc, .docx" required>
-    <span id="fileName"></span>
+    <span id="filename"></span>
 
       <button type="submit"
 class="submit-btn">Submit Application</button>
@@ -159,9 +184,54 @@ z-index:999;
   top:10px;
   cursor:pointer;
   }
+.wave {
+ position : fixed;
+ bottom : 0;
+ left : 0;
+ width : 200%;
+ height : 200%;
+ background : rgba(255,255,255,0.3);
+ opacity : 0.4;
+ border-radius : 43%;
+ animation :waveMove 10s linear infinite;
+ }
+.wave2 {
+ bottom : 20px;
+ opacity : 0.15;
+ animation : waveMove 15s linear infinite;
+ }
+.wave3{
+ bottom : 40px;
+ opacity : 0.15;
+ animation : waveMove 20s linear infinite;
+}
 
+@keyframes waveMove{
+0% {
+transform:translateX() rotate(0deg);
+}
+100%{
+transform:translateX(-50%)rotate(360deg);
+}
+}
 </style>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+
 <script>
+
+3DparticlesJS("3Dparticles-js",{
+"3Dparticles":{
+"number":{"value":80},
+"size":{"value":3}
+"move":{"speed":2},
+"line-linked":{
+"enable":true,
+"distance":150
+}
+}
+});
+
 function openForm(){
 document.getElementById("jobForm").style.display="flex";
 }
