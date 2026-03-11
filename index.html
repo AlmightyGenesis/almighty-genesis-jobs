@@ -103,10 +103,7 @@ onclick="closeForm()">X</span>
 <h2>Job Application</h2>
 <h3 style="text-align:center;color:#333; margin-bottom:15px;">Candidates Details</h3>
 
-<form action="https://formspree.io/f/xaqpeeyb" method="POST">
-</form>
-
-  <form id="jobApplicationForm">
+  <form id="jobApplicationForm" action="https://formspree.io/f/xaqpeeyb" method="POST" enctype="multipart/form-data">
     <input type="text" name="fullname" placeholder="Full Name" required>
     <input type="Email" name="Email" placeholder="Email Address" required>
     
@@ -126,7 +123,7 @@ onclick="closeForm()">X</span>
             <option value="customer_support_representive">CUSTOMER SUPPORT REPRESENTATIVE </option>
 </select>
       <input type="file" name="resume" accept=".pdf, .doc, .docx" required>
-    <span id="filename"></span>
+    <span id="fileName"></span>
 
       <button type="submit"
 class="submit-btn">Submit Application</button>
@@ -205,8 +202,6 @@ transform:translateX(-50%)rotate(360deg);
 }
 </style>
 
-<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-
 <script>
 
 function openForm(){
@@ -215,10 +210,8 @@ document.getElementById("jobForm").style.display="flex";
 function closeForm(){
 document.getElementById("jobForm").style.display="none";
 }
-document.getElementById("jobApplicationForm").addEventListener("submit",function(e){
-e.preventDefault();
+document.getElementById("jobApplicationForm").addEventListener("submit",function(){
 
-document.getElementById("jobForm").style.display="none";
 alert("Your Application Was Successfully Completed");
 });
 const resumeInput=document.querySelector('input[name="resume"]');
