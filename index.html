@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+z<!DOCTYPE html>
 <html lang = "en">
 <head>
 <meta charset = "UTF-8">
@@ -36,25 +36,22 @@ body {
             font-size : 40px; 
             font-weight : boldserif;
             letter-spacing : 2px;
-            margin-bottom : 40px;
+            margin-bottom : 30px;
             font-family : stencil;
             }
        .hiring {
             font-size : 30px;
             font-weight : bold;
-            margin-bottom : 40px;
-            color : gold;
+            color : white;
             }
        .position {
            font-size : 30px;
-           margin-bottom : 40px;
            color : DarkTurquoise;
            font-weight : bold;
            }
        .details {
            font-size : 25px;
            line-height : 1.8;
-           margin-bottom : 60px;
            color : white;																	
           }
        .button  {
@@ -62,7 +59,7 @@ body {
            color : light pink;
            font-size : 25px;
            font-weight : bold;
-           padding : 15px 30px;
+           padding : 8px 20px;
            width : fit-content;
            border-radius : 40px;
            cursor : pointer;
@@ -75,13 +72,13 @@ body {
    </head>
    <body>
          <div id="3Dparticles-js"></div>
-         <div class="wave"></div>
-         <div class="wave wave2"></div>
-         <div class="wave wave3"></div>
+         <div class="circle"></div>
+         <div class="circle circle2"></div>
+         <div class="circle circle3"></div>
 
          <div class = "post">
          <div class = "company" align = "center" >
-         <img src="logo.png" alt="Almighty Genesis Logo" style="width:150px; display:block; margin:0 auto 10px;">
+         <img src="logo.png" alt="Almighty Genesis Logo" style="width:150px; display:flex; margin:0 auto 10px;">
          <span style="color:#007BFF;">ALMIGHTY</span>
          <span style="color:#C2188F;"> GENESIS</span>
          </div>
@@ -103,7 +100,7 @@ onclick="closeForm()">X</span>
 <h2>Job Application</h2>
 <h3 style="text-align:center;color:#333; margin-bottom:15px;">Candidates Details</h3>
 
-  <form id="jobApplicationForm" action="https://formspree.io/f/xaqpeeyb" method="POST" enctype="multipart/form-data">
+  <form id="jobApplicationForm">
     <input type="text" name="fullname" placeholder="Full Name" required>
     <input type="Email" name="Email" placeholder="Email Address" required>
     
@@ -122,7 +119,7 @@ onclick="closeForm()">X</span>
             <option value="marketing_executive">MARKETING EXECUTIVE</option>
             <option value="customer_support_representive">CUSTOMER SUPPORT REPRESENTATIVE </option>
 </select>
-      <input type="file" name="resume" accept=".pdf, .doc, .docx" required>
+      <input type="file" name="resume" required>
     <span id="fileName"></span>
 
       <button type="submit"
@@ -170,7 +167,7 @@ z-index:999;
   top:10px;
   cursor:pointer;
   }
-.wave {
+.circle {
  position : fixed;
  bottom : 0;
  left : 0;
@@ -179,35 +176,40 @@ z-index:999;
  background : rgba(255,255,255,0.3);
  opacity : 0.4;
  border-radius : 43%;
- animation :waveMove 10s linear infinite;
+ animation : circleMove 10s linear infinite;
  }
-.wave2 {
+.circle2 {
  bottom : 20px;
  opacity : 0.15;
- animation : waveMove 15s linear infinite;
+ animation : circleMove 15s linear infinite;
  }
-.wave3{
+.circle3{
  bottom : 40px;
  opacity : 0.15;
- animation : waveMove 20s linear infinite;
+ animation : circleMove 20s linear infinite;
 }
-
-@keyframes waveMove{
+@keyframes circleMove{
 0% {
-transform:translateX() rotate(0deg);
+transform:translateX()rotate(0deg);
 }
 100%{
 transform:translateX(-50%)rotate(360deg);
 }
 }
+@media(max-width : 768px){
+.post {padding 10%;}
+.company {font-size:22px;}
+.position, .hiring {font-size:18px;}
+.details {font-size:14px;}
+.button {font-size:14px; padding:8px 22px;}
+}
 </style>
-
 <script>
 function openForm(){
-document.getElementById("jobForm").style.display="flex";
+  document.getElementById("jobForm").style.display="flex";
 }
 function closeForm(){
-document.getElementById("jobForm").style.display="none";
+  document.getElementById("joForm").style.display="none";
 }
 document.getElementById("jobApplicationForm").addEventListener("submit",function(){
 
@@ -223,6 +225,7 @@ resumeInput.addEventListener('change',function(){
    fileNameSpan.textContent="";
 }
 });
+
 </script>
 </head>
 </html>
